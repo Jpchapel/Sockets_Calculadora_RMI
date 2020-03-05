@@ -31,7 +31,7 @@ public class Servidor implements Calculadora {
             System.out.println("Creando el objeto servidor e inscribiendolo en el registro");
             Servidor servidor = new Servidor();
             
-            registry.bind("Calculadora", (Calculadora)UnicastRemoteObject.exportObject(servidor, 0));
+            registry.bind("Calculadora", UnicastRemoteObject.exportObject(servidor, 0));
         } catch (RemoteException | AlreadyBoundException ex) {
             Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
